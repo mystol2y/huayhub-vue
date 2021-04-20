@@ -528,7 +528,7 @@ export default {
 </script>
 
 <style scoped>
-  .bg-wi3 {
+ .bg-wi3 {
   background: white;
   height: 100%;
   border-radius: 20px;
