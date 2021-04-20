@@ -15,6 +15,9 @@
           <li @click="status = 'c',setActive('li2')" class="btn nav-link"  :class="{ active: isActive('li2') }">
             <i class="bi bi-award"></i> Profile
           </li>
+          <li @click="status = 'd',setActive('li3')" class="btn nav-link"  :class="{ active: isActive('li3') }">
+            <i class="bi bi-award"></i> รีวิว
+          </li>
         </ul>
       </div>
       <div class="flex-column card wi2 ">
@@ -236,6 +239,7 @@
             </div>
             </div>
         </div>
+
         <div  v-if="status === 'c'" class="bg-wi3">
          
           <h4><i class="bi bi-award"></i>Profile</h4>
@@ -485,6 +489,11 @@
 
         </div>
 
+        <div  v-if="status === 'd'" class="bg-card1 m-0" >
+          <h4><i class="bi bi-award "></i>ราคา</h4>
+          <Review/>
+        </div>
+
       </div>
     </div>
     
@@ -492,6 +501,7 @@
 </template>
 
 <script>
+import Review from '@/components/Review.vue'
 export default {
   name: "Menuhuay",
   data() {
@@ -501,6 +511,9 @@ export default {
     }
   },mounted() {
     
+  },
+  components: {
+         Review,
   },
   methods: {
     isActive: function (menuItem) {
@@ -515,7 +528,7 @@ export default {
 </script>
 
 <style scoped>
-  .bg-wi3 {
+ .bg-wi3 {
   background: white;
   height: 100%;
   border-radius: 20px;
