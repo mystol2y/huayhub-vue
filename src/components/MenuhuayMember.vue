@@ -18,6 +18,9 @@
           <li @click="status = 'd',setActive('li3')" class="btn nav-link"  :class="{ active: isActive('li3') }">
             <i class="bi bi-award"></i> รีวิว
           </li>
+          <li @click="status = 'f',setActive('li4')" class="btn nav-link"  :class="{ active: isActive('li4') }">
+            <i class="bi bi-award"></i> ชวนเพื่อน
+          </li>
         </ul>
       </div>
       <div class="flex-column card wi2 ">
@@ -494,6 +497,13 @@
           <Review/>
         </div>
 
+        
+        <div  v-if="status === 'f'" class="bg-card1 m-0" >
+          <h4 class="m-0"><i class="bi bi-award "></i>ชวนเพื่อน</h4>
+          <Invitefriend/>
+        </div>
+
+
       </div>
     </div>
     
@@ -502,6 +512,7 @@
 
 <script>
 import Review from '@/components/Review.vue'
+import Invitefriend from '@/components/Invitefriend.vue'
 export default {
   name: "Menuhuay",
   data() {
@@ -514,6 +525,7 @@ export default {
   },
   components: {
          Review,
+         Invitefriend
   },
   methods: {
     isActive: function (menuItem) {
