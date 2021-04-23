@@ -24,6 +24,9 @@
           <li @click="status = 'g',setActive('li5')" class="btn nav-link" :class="{ active: isActive('li5') }">
             <i class="bi bi-award"></i> เติมเงิน
           </li>
+          <li @click="status = 'h',setActive('li6')" class="btn nav-link" :class="{ active: isActive('li6') }">
+            <i class="bi bi-award"></i> ถอนเงิน
+          </li>
         </ul>
       </div>
       <div class="flex-column card wi2 ">
@@ -511,6 +514,11 @@
            <Deposit/>
         </div>
 
+        <div v-if="status === 'h' ">
+          <h4 class="m-0"><i class="bi bi-award "></i>ถอนเงิน</h4>
+           <Withdraw/>
+        </div>
+
       </div>
     </div>
     
@@ -519,6 +527,7 @@
 
 <script>
 import Review from '@/components/Review.vue'
+import Withdraw from '@/components/Withdraw.vue'
 import Deposit from '@/components/Deposit.vue'
 import Invitefriend from '@/components/Invitefriend.vue'
 export default {
@@ -534,7 +543,8 @@ export default {
   components: {
          Review,
          Invitefriend,
-         Deposit
+         Deposit,
+         Withdraw
   },
   methods: {
     isActive: function (menuItem) {
