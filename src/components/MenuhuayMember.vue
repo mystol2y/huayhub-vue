@@ -18,14 +18,17 @@
           <li @click="status = 'd',setActive('li3')" class="btn nav-link"  :class="{ active: isActive('li3') }">
             <i class="bi bi-award"></i> รีวิว
           </li>
-          <li @click="status = 'f',setActive('li4')" class="btn nav-link"  :class="{ active: isActive('li4') }">
+          <li @click="status = 'e',setActive('li4')" class="btn nav-link"  :class="{ active: isActive('li4') }">
             <i class="bi bi-award"></i> ชวนเพื่อน
           </li>
-          <li @click="status = 'g',setActive('li5')" class="btn nav-link" :class="{ active: isActive('li5') }">
+          <li @click="status = 'f',setActive('li5')" class="btn nav-link" :class="{ active: isActive('li5') }">
             <i class="bi bi-award"></i> เติมเงิน
           </li>
-          <li @click="status = 'h',setActive('li6')" class="btn nav-link" :class="{ active: isActive('li6') }">
+          <li @click="status = 'g',setActive('li6')" class="btn nav-link" :class="{ active: isActive('li6') }">
             <i class="bi bi-award"></i> ถอนเงิน
+          </li>
+          <li @click="status = 'h',setActive('li7')" class="btn nav-link" :class="{ active: isActive('li7') }">
+            <i class="bi bi-award"></i> รายการฝากถอน
           </li>
         </ul>
       </div>
@@ -504,19 +507,24 @@
         </div>
 
         
-        <div  v-if="status === 'f'" class="bg-card1 m-0" >
+        <div  v-if="status === 'e'" class="bg-card1 m-0" >
           <h4 class="m-0"><i class="bi bi-award "></i>ชวนเพื่อน</h4>
           <Invitefriend/>
         </div>
 
-        <div v-if="status === 'g' ">
+        <div v-if="status === 'f' ">
           <h4 class="m-0"><i class="bi bi-award "></i>เติมเงิน</h4>
            <Deposit/>
         </div>
 
-        <div v-if="status === 'h' ">
+        <div v-if="status === 'g' ">
           <h4 class="m-0"><i class="bi bi-award "></i>ถอนเงิน</h4>
            <Withdraw/>
+        </div>
+
+        <div v-if="status === 'h' ">
+          <h4 class="m-0"><i class="bi bi-award "></i>รายการฝากถอน</h4>
+           <RequestAll/>
         </div>
 
       </div>
@@ -527,6 +535,7 @@
 
 <script>
 import Review from '@/components/Review.vue'
+import RequestAll from '@/components/RequestAll.vue'
 import Withdraw from '@/components/Withdraw.vue'
 import Deposit from '@/components/Deposit.vue'
 import Invitefriend from '@/components/Invitefriend.vue'
@@ -544,7 +553,8 @@ export default {
          Review,
          Invitefriend,
          Deposit,
-         Withdraw
+         Withdraw,
+         RequestAll
   },
   methods: {
     isActive: function (menuItem) {
